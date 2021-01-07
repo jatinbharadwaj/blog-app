@@ -40,7 +40,7 @@
                 </li>
                 {{else}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Signed In as {{currentUser.username}}</a>
+                    <a class="nav-link" href="/user/{{currentUser.username}}">Signed In as {{currentUser.username}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">LogOut</a>
@@ -50,7 +50,8 @@
         </div>
     </nav>
     <div class="container">
-      
+        <br>
+        <br>
         <div class="row text-center" style="display:flex; flex-wrap:wrap;">
             {{#each posts}}
             <div class="col-md-3 col-sm-6">
