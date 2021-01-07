@@ -24,10 +24,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/posts">Posts</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -55,8 +55,12 @@
             <div class="col-md-3">
                 <p class="lead">YELP CAMP</p>
                 <div class="list-group">
-                    <li class="list-group-item active">Info1</li>
-                    <li class="list-group-item">Info2</li>
+              <li class="list-group-item active">Post</li>
+                    <li class="list-group-item">
+                        <a href="/posts/{{post._id}}/comments/new">
+                            <strong>Add Comment</strong>
+                        </a>
+                    </li>
                     <li class="list-group-item">Info3</li>
                 </div>
             </div>
