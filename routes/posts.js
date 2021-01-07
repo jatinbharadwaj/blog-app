@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
       console.log(err);
     } else {
       res.render("posts/index", {
-        posts: allposts,
+        posts: allposts.reverse(),
         currentUser: req.user,
       });
     }
@@ -46,7 +46,7 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
 });
 
 //NEW - show form to create new posts
-router.get("/new", middleware.isLoggedIn, (req, res) => {
+router.get("/publish", middleware.isLoggedIn, (req, res) => {
   res.render("posts/new");
 });
 
