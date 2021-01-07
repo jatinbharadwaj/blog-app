@@ -60,7 +60,7 @@ router.get("/:id", function (req, res) {
         console.log("Error occurced in finding ID");
       } else {
         //render show template with that post
-        res.render("posts/show", { post: foundpost });
+        res.render("posts/show", { post: foundPost });
       }
     });
 });
