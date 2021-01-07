@@ -1,9 +1,14 @@
 # Blog App
 
+A simple blogging webapp built using NodeJS, ExpressJS and MongoDb. Authenticated and authorization functions with passport
+
 ## Functions
 
 - SignIn - Login into existing account
 - SignUp - Signup using username and password
+- Add Post - Add your post with an image and text
+- Remove - Remove a post
+- Edit - Edit an existing post
 
 ## Checkout Hosted WebApp here
 
