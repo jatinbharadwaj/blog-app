@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
 //---------DATABASE SETUP------------------
 const mongo_uri = process.env.mongo_uri;
@@ -20,8 +22,15 @@ connect.then(
 );
 // --------------------------------------
 
+//-------------GENRAL CONFIGURATION----------
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "hbs");
+app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+//-------------------------------------------
+
 app.get("/", (req, res) => {
-  res.send("Working setup");
+  res.render("landing");
 });
 
 let port = process.env.PORT || 3030;
