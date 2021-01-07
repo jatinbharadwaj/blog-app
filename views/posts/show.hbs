@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{post.name}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Pic Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {{#unless currentUser}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Sign Up</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Signed In as {{currentUser.username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">LogOut</a>
+                </li>
+                {{/unless}}
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">YELP CAMP</p>
+                <div class="list-group">
+                    <li class="list-group-item active">Info1</li>
+                    <li class="list-group-item">Info2</li>
+                    <li class="list-group-item">Info3</li>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="{{post.image}}" width="500" height="500">
+                    <div class="caption-full">
+                        <h4 class="float-right">Rs. 250.0/night</h4>
+                        <h4><a>{{post.name}}</a></h4>
+                        <p>{{post.description}}</p>
+                        <p>
+                            <em>Submitted By {{post.author.username}}</em>
+                        </p>
+                        <a class="btn btn-sm btn-warning" href="/posts/{{post._id}}/edit">Edit</a>
+                        <form id="delete-form" action="/posts/{{post._id}}?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="well">
+                    <div class="text-right">
+                        <a class="btn btn-success" href="/posts/{{post._id}}/comments/new">
+                            Add Comment
+                        </a>
+                    </div>
+                    <hr>
+                    {{#each post.comments}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong>{{author.username}}</strong>
+                            <span class="float-right">10 days ago</span>
+                            <p>
+                                {{text}}
+                            </p>
+                            <a class="btn btn-sm btn-warning" href="/posts/{{../post._id}}/comments/{{_id}}/edit">
+                                Edit
+                            </a>
+                            <form id="delete-form" action="/posts/{{../post._id}}/comments/{{_id}}?_method=DELETE"
+                                method="POST">
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

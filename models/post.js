@@ -19,4 +19,4 @@ var postSchema = mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Post", campgroundSchema);
+module.exports = mongoose.model("Post", postSchema);

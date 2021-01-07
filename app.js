@@ -29,9 +29,15 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 //-------------------------------------------
 
-app.get("/", (req, res) => {
-  res.render("landing");
-});
+//------------ROUTERS------------------------
+const commentRoutes = require("./routes/comments");
+const postRoutes = require("./routes/posts");
+const indexRoutes = require("./routes/index");
+//---------------------------------------------
+
+app.use("/", indexRoutes);
+app.use("/posts", postRoutes);
+app.use("/posts/:id/comments", commentRoutes);
 
 let port = process.env.PORT || 3030;
 
