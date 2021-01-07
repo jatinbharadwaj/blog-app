@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <p class="lead">YELP CAMP</p>
+                <p class="lead">{{post.author.username}}</p>
                 <div class="list-group">
               <li class="list-group-item active">Post</li>
                     <li class="list-group-item">
@@ -61,7 +61,7 @@
                             <strong>Add Comment</strong>
                         </a>
                     </li>
-                    <li class="list-group-item">Info3</li>
+                    <li class="list-group-item"><a href="/posts"><strong>All Posts</strong></a></li>
                 </div>
             </div>
             <div class="col-md-9">
@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <strong>{{author.username}}</strong>
-                            <span class="float-right">10 days ago</span>
+                            <span class="float-right">Added Today</span>
                             <p>
                                 {{text}}
                             </p>

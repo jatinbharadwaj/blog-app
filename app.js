@@ -66,5 +66,5 @@ app.use("/posts/:id/comments", commentRoutes);
 let port = process.env.PORT || 3030;
 
 app.listen(port, () => {
-  console.log("Server Listening at http://localhost:3030");
+  console.log(`Server Listening at http://localhost:${port}`);
 });
